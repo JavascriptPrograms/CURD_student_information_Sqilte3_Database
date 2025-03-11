@@ -1,0 +1,23 @@
+<head>
+    <!-- start header -->
+        <%- include('../include/header',{title:'search_student'}) %>
+        <!-- end header-->
+</head>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="container mt-5">
+                <p><img src="/uploads/<%= student.student_pic %>" height="100px" width="100px"/></p>
+                <p>Roll Number: <b><ul><%= student.roll_number %></ul></b></p>
+                <p>First Name: <b><u><%= student.first_name %></u></b></p>
+                <p>Last Name: <b><u><%= student.last_name %></u></b></p>
+                <p>Email: <b><u><%= student.email %></u></b></p>
+                <p>Phone Number: <b><u><%= student.phone_number %></u></b></p>
+                <p>Address: <b><u><%= student.address %></u></b></p>
+                <a href="/home">Back to Home Page !!</a>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

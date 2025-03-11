@@ -1,0 +1,18 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold; 
+}
+h3{
+    color: red;
+}
+.container-fluid, button{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+ul,li{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+ul{
+    list-style-type: none;
+}

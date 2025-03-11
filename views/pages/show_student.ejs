@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- start header -->
+            <%- include('../include/header',{title:'Show Student'}) %>
+         <!-- end header-->
+    </head>
+<body>
+    <!-- start body -->
+    <%- include('../include/navbar') %>
+    <!-- end body -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <% if (messages.success) { %>
+                    <% messages.success.forEach(function(message) { %>
+                        <div class="alert alert-success"><%= message %></div>
+                    <% }); %>
+                    <script>
+                        setTimeout(() => {
+                          document.querySelector('.alert-success').style.display = 'none';
+                        }, 3000); // 3000ms = 3 seconds
+                      </script>
+                  <% } %>
+                <h3 class="text-center text-danger mt-5">Show STudent</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Roll Number</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Student Pic</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% student.forEach(stu=>{%>
+                            <tr>
+                                <td><%= stu.roll_number %></td>
+                                <td><%= stu.first_name %></td>
+                                <td><%= stu.last_name %></td>
+                                <td><%= stu.email %></td>
+                                <td><%= stu.phone_number %></td>
+                                <td><%= stu.address %></td>
+                                <td><img src="/uploads/<%= stu.student_pic  %>" height="100px" width="100px" alt="image_data"/></td>
+                                <td>
+                                    <a href="/edit_student/<%= stu.roll_number %>" class="btn btn-success btn-sm ">Edit</a>
+                                    <a href="/delete_student/<%= stu.roll_number %>" class="btn btn-danger btn-sm mt-3">Delete</a>
+                                </td>
+                            </tr>
+                        <%}) %>
+                        
+                    </tbody>
+                </table>
+                <ul class="pagination">
+                    <% if (currentPage > 1) { %>
+                        <li class="page-item"><a class="page-link" href="/show_student?page=<%= currentPage - 1 %>">Previous</a></li>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                        <li class="page-item"><a class="page-link" href="/show_student/?page=<%= i %>" <%= currentPage === i  %>><%= i %></a></li>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                        <li class="page-item"><a class="page-link" href="/show_student?page=<%= currentPage + 1 %>">Next</a></li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="col-ms-2"></div>
+        </div>
+    </div>
+</body>
+</html>

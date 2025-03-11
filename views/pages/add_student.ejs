@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- start header -->
+        <%- include('../include/header',{title:'Add Student'}) %>
+     <!-- end header-->
+</head>
+<body>
+    <!-- start body -->
+    <%- include('../include/navbar') %>
+    <!-- end body -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <% if (messages.success) { %>
+                    <% messages.success.forEach(function(message) { %>
+                        <div class="alert alert-success"><%= message %></div>
+                    <% }); %>
+                    <script>
+                        setTimeout(() => {
+                          document.querySelector('.alert-success').style.display = 'none';
+                        }, 3000); // 3000ms = 3 seconds
+                      </script>
+                  <% } %>
+                <h3 class="text-danger mt-5 text-center">Add Student</h3>
+                <form method="POST" action="/add_student" enctype="multipart/form-data" >
+                    <div class="mb-3 mt-3">
+                        <label for="roll_number" class="form-label">Roll Number:</label>
+                        <input type="text" class="form-control" id="roll_number" placeholder="Enter the Roll Number" name="roll_number"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="Enter the First Name" name="first_name"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="last_name" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" placeholder="Enter the Last Name" name="last_name"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter the Email" name="email"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="phone_number" class="form-label">Phone Number:</label>
+                        <input type="text" class="form-control" id="phone_number" placeholder="Enter the Phone Number" name="phone_number"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="address" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter the Address" name="address"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Student Pic</label>
+                        <input class="form-control form-control-sm" id="image" name="image" type="file">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</body>
+</html>

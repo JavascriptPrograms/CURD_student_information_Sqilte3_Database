@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- start header -->
+        <%- include('../include/header',{title:'Edit Student'}) %>
+    <!-- end header-->
+</head>
+<body>
+    <style>
+        .container-fluid, button{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+    </style>
+   <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h3 class="text-center text-danger mt-5">Edit Student</h3>
+                <form method="POST" action="/update_student/<%= student.roll_number %>" enctype="multipart/form-data" >
+                    <div class="mb-3 mt-3">
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" value="<%= student.first_name %>" name="first_name"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="last_name" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" value="<%= student.last_name %>" name="last_name"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" value="<%= student.email %>" name="email"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="phone_number" class="form-label">Phone Number:</label>
+                        <input type="text" class="form-control" id="phone_number" value="<%= student.phone_number %>" name="phone_number"/>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="address" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="address" value="<%= student.address  %>" name="address"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Student Preview</label>
+                        <img src="/uploads/<%= student.student_pic %>" alt="image" height="100px" width="100px"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Student Pic</label>
+                        <input class="form-control form-control-sm" id="image" name="image" type="file">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Update</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+   </div> 
+</body>
+</html>
